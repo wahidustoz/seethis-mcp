@@ -1,0 +1,64 @@
+{
+  "name": "seethis-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Seethis! — Publish and retrieve end-to-end encrypted HTML/Markdown visualizations as shareable URLs",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "seethis-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "!dist/**/*.test.*",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run clean && npm run build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:integration": "vitest run tests/integration.test.ts"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "seethis",
+    "visualization",
+    "html",
+    "markdown",
+    "encryption",
+    "sharing",
+    "claude",
+    "ai"
+  ],
+  "author": "wahidustoz",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wahidustoz/seethis-mcp.git"
+  },
+  "homepage": "https://seethis.uz",
+  "bugs": {
+    "url": "https://github.com/wahidustoz/seethis-mcp/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@vitest/coverage-v8": "^3.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}
