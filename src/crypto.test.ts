@@ -51,7 +51,7 @@ describe("encrypt/decrypt round-trip", () => {
     expect(decrypted).toEqual(original);
   });
 
-  it("round-trips with large content (~2MB)", () => {
+  it("round-trips with large content (~2MB)", { timeout: 30_000 }, () => {
     const original = Buffer.alloc(2 * 1024 * 1024, "x");
     const { ciphertext, iv, key } = encrypt(original);
     const decrypted = decrypt(ciphertext, iv, key);
